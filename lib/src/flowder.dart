@@ -62,7 +62,7 @@ class Flowder {
           await sink.writeFrom(data);
           final currentProgress = lastProgress + data.length;
           await options.progress.setProgress(url, currentProgress.toInt());
-          options.progressCallback.call(currentProgress, _total);
+          options.progressCallback.call(currentProgress as int, _total as int);
           lastProgress = currentProgress as int;
           subscription.resume();
         },
